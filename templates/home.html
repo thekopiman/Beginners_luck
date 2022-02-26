@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+ 
+{% block title %}
+    Home
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-md navbar-light border-bottom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><span class="blue">Inteetsgintern</span></a>
+        <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+            <!-- insert a navbar for logging in and registering-->
+            <ul class="navbar-nav me-auto mt-2">
+            </ul>
+            <ul class="navbar-nav ms-auto mt-2">
+                <li class="nav-item"><a class="nav-link" href="/emp_reg">Create account for employers</a></li>
+                <li class="nav-item"><a class="nav-link" href="/register">Create account for seekers</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+            </ul>
+    </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block main %}
+   <div class="top">
+       <div class="home">
+            <h1>
+                Creating opportunities for our youths.
+            </h1>
+       </div>
+       
+   </div>
+
+{% endblock %}

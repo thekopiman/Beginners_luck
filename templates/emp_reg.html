@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+ 
+{% block title %}
+    Accounts for employers
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-md navbar-light border-bottom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><span class="blue">Inteetsgintern</span></a>
+        <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+            <!-- insert a navbar for logging in and registering-->
+            <ul class="navbar-nav me-auto mt-2">
+            </ul>
+            <ul class="navbar-nav ms-auto mt-2">
+                <li class="nav-item"><a class="nav-link" href="/emp_reg">Create account for employers</a></li>
+                <li class="nav-item"><a class="nav-link" href="/register">Create account for seekers</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+            </ul>
+    </div>
+    </div>
+</nav>
+{% endblock %}
+ 
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
+                <div class="middle-col">
+                    <div class="border border-primary-0 rounded login">
+                        <form action="/emp_reg" method="post">
+                            <div class="register">
+                                <div class="sign-in-label">
+                                    <h4>
+                                        Create Account
+                                    </h4>
+                                </div>
+                                <div class="mb-3">
+                                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="company_name" name="company_name" placeholder="Company Name" type="text">
+                                </div>
+                                <div class="mb-3">
+                                    <input autocomplete="off" class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+                                </div>
+                                <div class="error">
+                                    <span>{{ field_error }}{{ user_error }}</span>
+                                </div>
+                                <button class="btn btn-primary" type="submit">Sign Up</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

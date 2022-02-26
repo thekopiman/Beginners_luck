@@ -21,26 +21,49 @@ Session(app)
 def index():
 
    hello = Backend()
-    data = list(hello.getData().values())
-    companies = []
-    firebase_admin.delete_app(firebase_admin.get_app())
-    companies = []
+   data = list(hello.getData().values())
+   companies = []
+   firebase_admin.delete_app(firebase_admin.get_app())
+   companies = []
+   welcome = "Welcome Kurt"
+   
     
-    for i in range(20):
-        companies.append("Google")
+   for i in range(20):
+       companies.append("Google")
 
-    return render_template("index.html", data=data, companies=companies)
+   return render_template("index.html", data=data, companies=companies, welcome=welcome)
 
 
-@app.route("/profile")
-@login_required
-def profile():
+@app.route("/home")
+def home():
 
-    return render_template("profile.html")
+    return render_template("home.html")
+
+@app.route("/emp_reg", methods=["GET", "POST"])
+def emp_reg():
+
+    field_error = "*All fields must be filled."
+
+    if request.method == "POST":
+
+        # (Optional) Set to telegram_username
+        company_name = request.form.get("company_name")
+        user = request.form.get("username")
+        Pass = request.form.get("password")
+
+        if not user or not Pass or not company_name:
+            return render_template("emp_reg.html", field_error=field_error)
+        
+        return render_template("login.html")
+    else:
+        return render_template("emp_reg.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    
+    field_error = "*All fields must be filled."
+    user_error = "Username has already been taken"
 
     if request.method == "POST":
 
@@ -53,12 +76,15 @@ def register():
         # Add this into the register page
         education_cert = request.form.get("education_cert")
 
-        list = [tele_user, user, Pass]
+        if not user or not Pass or not full_name or not education_cert:
+            return render_template("register.html", field_error=field_error)
+
+        # list = [tele_user, user, Pass]
 
         hello = WebFireBaseDB()
         # If this condition is true, that means that REGISTER should yield error
         if hello.check_exisiting_user(user):
-            raise Exception  # Instead of raise error, please go back to the login screen and inform the user that the username has been used
+            return render_template("register.html", user_error=user_error)  # Instead of raise error, please go back to the login screen and inform the user that the username has been used
         else:
             hello.register_account(user, Pass, full_name,
                                    education_cert, tele_user)
@@ -69,7 +95,7 @@ def register():
 
         firebase_admin.delete_app(firebase_admin.get_app())
 
-        return redirect("/")
+        return render_template("login.html")
     else:
         return render_template("register.html")
 
@@ -80,7 +106,10 @@ def login():
     session.clear()
 
     username = list(hello.get_login_details().keys())
-    password = hello.get_login_details().keys()
+    password = hello.get_login_details()
+
+    field_error = "*All fields must be filled."
+    userpass_error = "*Username/password is invalid."
 
     firebase_admin.delete_app(firebase_admin.get_app())
 
@@ -88,17 +117,17 @@ def login():
 
         # Ensure username was submitted
         if not request.form.get("username"):
-            return print("must provide username")
+            print("must provide username")
+            return render_template("login.html", field_error=field_error)
         else:
             user = request.form.get("username")
-            print(user)
 
         # Ensure password was submitted
         if not request.form.get("password"):
-            return print("must provide password")
+            print("must provide password")
+            return render_template("login.html", field_error=field_error)
         else:
             Pass = request.form.get("password")
-            print(Pass)
 
         # Query database for username
         # rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
@@ -107,15 +136,17 @@ def login():
         # if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
         #    return print("invalid username and/or password")
         if user not in username:
-            return print("Invalid user or pass")
+            print("Invalid user or pass")
+            return render_template("login.html", userpass_error=userpass_error)
         if Pass != password[user]:
-            return print("Invalid user or pass")
+            print("Invalid user or pass")
+            return render_template("login.html", userpass_error=userpass_error)
 
         session["user"] = random.randint(0, 9)
 
         return redirect("/")
     else:
-        return render_template("/login.html")
+        return render_template("login.html")
 
 
 @app.route("/logout")

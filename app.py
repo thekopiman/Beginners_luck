@@ -7,30 +7,23 @@ from helper import login_required
 
 from web_firebaseDB import WebFireBaseDB
 import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import db
+from database import Backend
 
 app = Flask(__name__)
-
-cred = credentials.Certificate(r"C:\Users\agohs\Downloads\inteetsgintern-firebase-adminsdk-bh9du-abb3ea5cbb.json")
-firebase_admin.initialize_app(cred, {"databaseURL": "https://inteetsgintern-default-rtdb.asia-southeast1.firebasedatabase.app"})
 
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-
 @app.route("/")
 @login_required
 def index():
 
-    def getJobs():
-        getJob = db.reference('jobs/')
-        jobData = getJob.get()
-        return jobData
-
-    data = list(getJobs().values())
+   hello = Backend()
+    data = list(hello.getData().values())
+    companies = []
+    firebase_admin.delete_app(firebase_admin.get_app())
     companies = []
     
     for i in range(20):

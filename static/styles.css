@@ -137,7 +137,7 @@ button:hover {
 
 .login{
     margin-top: 80px;
-    min-height: 400px;
+    min-height: 420px;
 }
 
 .sign-up{
@@ -151,4 +151,16 @@ button:hover {
 
 .login-entry{
     margin-top: 80px;
+}
+
+.home{
+    color: white;
+    padding: 180px;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+
+.error{
+    color: red;
+    font-size: x-small;
 }

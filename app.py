@@ -7,8 +7,13 @@ from helper import login_required
 
 from web_firebaseDB import WebFireBaseDB
 import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import db
 
 app = Flask(__name__)
+
+cred = credentials.Certificate(r"C:\Users\agohs\Downloads\inteetsgintern-firebase-adminsdk-bh9du-abb3ea5cbb.json")
+firebase_admin.initialize_app(cred, {"databaseURL": "https://inteetsgintern-default-rtdb.asia-southeast1.firebasedatabase.app"})
 
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
@@ -20,17 +25,14 @@ Session(app)
 @login_required
 def index():
 
-    data = []
-    companies = []
+    def getJobs():
+        getJob = db.reference('jobs/')
+        jobData = getJob.get()
+        return jobData
 
-    for i in range(5):
-        data.append({
-            "company": "Indeed",
-            "jobType": "Intern",
-            "pay": "1050",
-            "jobSector": "Business",
-            "description": "Shopee Academy takes pride in close partnership with all leaders, teams and individuals in Shopee to co-create learning solutions that work for them. We aim to become better versions of ourselves. Our comprehensive learning initiatives includes General, Functional and Leadership training to cater to different groups of employees."
-        })
+    data = list(getJobs().values())
+    companies = []
+    
     for i in range(20):
         companies.append("Google")
 

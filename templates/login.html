@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+ 
+{% block title %}
+    Sign In Account
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-md navbar-light border-bottom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><span class="blue">Inteetsgintern</span></a>
+        <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+        </div>
+    </div>
+</nav>
+{% endblock %}
+ 
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
+                <div class="middle-col">
+                    <div class="border border-primary-0 rounded login">
+                        <form action="/login" method="post">
+                            <div class="sign-in-label">
+                                <h4>
+                                    Sign in
+                                </h4>
+                            </div>
+                            <div class="login-entry">
+                                <div class="mb-3">
+                                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
+                                </div>
+                                <div id="error"></div>
+                                <div class="mb-3">
+                                    <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+                                </div>
+                                <button class="btn btn-primary" type="submit" onsubmit="return check();">Log In</button>
+                                <div class="sign-up">
+                                    <span>Don't have an account? <a href="/register">Sign up here.</a></span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

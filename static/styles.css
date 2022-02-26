@@ -1,0 +1,154 @@
+/* object styles */
+
+body {
+    background: #e8cbc0;
+    background: -webkit-linear-gradient(to right, #e8cbc0, #636fa4);
+    background: linear-gradient(to right, #e8cbc0, #636fa4);
+}
+
+.navbar{
+    background:white;
+    height: 80px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-bottom: 0px;
+    position: fixed;
+    width:100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #242F36;
+    font-family: 'Montserrat', sans-serif;
+}
+ 
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+}
+
+h4 {
+    color: darkslategray;
+    padding-top: 15px;
+    padding-left: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.section{
+    min-height: 100px;
+    font-family: 'Montserrat', sans-serif;
+}
+ 
+a {
+    color: #000000;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+ 
+a:hover {
+    text-decoration: underline;
+    color: black;
+}
+ 
+button, input[type="submit"] {
+    background-color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    line-height: 1.5;
+    padding: 0.375rem 0.75rem;
+    margin-left: 5px;
+    margin-top: 3px;
+    margin-right: 25px;
+    text-align: center;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    vertical-align: middle;
+    font-family: 'Montserrat', sans-serif;
+}
+ 
+button:hover {
+    text-decoration: underline;
+}
+
+/* custom styles */
+/*Indec.html*/
+.top{
+    margin-top: 60px;
+}
+
+.left-col{
+    margin:3px;
+    min-height:300px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.right-col{
+    margin:3px;
+    min-height:300px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+}
+
+.border{
+    margin: 10px;
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.border:hover{
+    background-color: #F5F5F5;
+    transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.subtitle{
+    font-size: large;
+    color: rgb(51, 87, 87);
+    padding-top: 5px;
+    padding-left: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.desc{
+    font-size: small;
+    color: rgb(51, 87, 87);
+    padding-top: 3px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.filter{
+    padding: 25px;
+}
+
+.content{
+    text-align: left;
+    min-height:150px;
+}
+
+.side-content{
+    min-height:450px;
+    text-align: middle;
+}
+
+.login{
+    margin-top: 80px;
+    min-height: 400px;
+}
+
+.sign-up{
+    margin: 15px;
+}
+
+.sign-in-label{
+    text-align: left;
+    margin: 25px;
+}
+
+.login-entry{
+    margin-top: 80px;
+}

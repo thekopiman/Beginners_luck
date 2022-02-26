@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
  
 {% block title %}
-    Login Account
+    Accounts for employees
 {% endblock %}
 
 {% block navbar %}
@@ -12,13 +12,21 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar">
-        </div>
+            <!-- insert a navbar for logging in and registering-->
+            <ul class="navbar-nav me-auto mt-2">
+            </ul>
+            <ul class="navbar-nav ms-auto mt-2">
+                <li class="nav-item"><a class="nav-link" href="/emp_reg">Create account for employers</a></li>
+                <li class="nav-item"><a class="nav-link" href="/register">Create account for seekers</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+            </ul>
+    </div>
     </div>
 </nav>
 {% endblock %}
  
 {% block main %}
-    <div class="container top">
+    <div class="container">
         <div class="row">
             <div class="col-md-3">
             </div>
@@ -26,16 +34,39 @@
                 <div class="middle-col">
                     <div class="border border-primary-0 rounded login">
                         <form action="/register" method="post">
-                            <div class="mb-3">
-                                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="tele_user" name="tele_user" placeholder="Telegram Username" type="text">
+                            <div class="register">
+                                <div class="sign-in-label">
+                                    <h4>
+                                        Create Account
+                                    </h4>
+                                </div>
+                                <div class="mb-3">
+                                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="tele_user" name="tele_user" placeholder="Telegram Username" type="text">
+                                </div>
+                                <div class="mb-3">
+                                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="full_name" name="full_name" placeholder="Full Name" type="text">
+                                </div>
+                                <div class="mb-3">
+                                    <input autocomplete="off" class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="education_cert">Highest qualification: </label>
+                                        <select id="education_cert" name="education_cert">
+                                            <option value="Degree">Degree</option>
+                                            <option value="Diploma">Diploma</option>
+                                            <option value="A-levels">A-Levels</option>
+                                            <option value="O-levels">O-Levels</option>
+                                            <option value="N-levels">N-Levels</option>
+                                        </select>
+                                </div>
+                                <div class="error">
+                                    <span>{{ field_error }}{{ userpass_error }}</span>
+                                </div>
+                                <button class="btn btn-primary" type="submit">Sign Up</button>
                             </div>
-                            <div class="mb-3">
-                                <input autocomplete="off" class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
-                            </div>
-                            <div class="mb-3">
-                                <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
-                            </div>
-                            <button class="btn btn-primary" type="submit">Create Account</button>
                         </form>
                     </div>
                 </div>

@@ -12,7 +12,15 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar">
-        </div>
+            <!-- insert a navbar for logging in and registering-->
+            <ul class="navbar-nav me-auto mt-2">
+            </ul>
+            <ul class="navbar-nav ms-auto mt-2">
+                <li class="nav-item"><a class="nav-link" href="/emp_reg">Create account for employers</a></li>
+                <li class="nav-item"><a class="nav-link" href="/register">Create account for seekers</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+            </ul>
+    </div>
     </div>
 </nav>
 {% endblock %}
@@ -39,10 +47,10 @@
                                 <div class="mb-3">
                                     <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
                                 </div>
-                                <button class="btn btn-primary" type="submit" onsubmit="return check();">Log In</button>
-                                <div class="sign-up">
-                                    <span>Don't have an account? <a href="/register">Sign up here.</a></span>
+                                <div class="error">
+                                    <span>{{ field_error }}{{ userpass_error }}</span>
                                 </div>
+                                <button class="btn btn-primary" type="submit" onsubmit="return check();">Log In</button>
                             </div>
                         </form>
                     </div>

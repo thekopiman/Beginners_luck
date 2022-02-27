@@ -131,7 +131,6 @@ button:hover {
 }
 
 .side-content{
-    min-height:450px;
     text-align: middle;
 }
 
@@ -176,4 +175,9 @@ button:hover {
 
 .desc-input{
     height: 150px;
+}
+
+.pad{
+    padding-left: 5px;
+    padding-right: 5px;
 }

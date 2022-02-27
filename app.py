@@ -35,8 +35,17 @@ def index():
 @app.route("/upload")
 @login_required
 def upload():
-   
-   return render_template("upload.html")
+
+    if request.method == "POST":
+        job_type = request.form.get("job_type")
+        requirement = request.form.get("requirement")
+        job_sector = request.form.get("job_sector")
+        pay = request.form.get("pay")
+        desc = request.form.get("desc")
+
+        return redirect ("/")
+    else:
+        return render_template("upload.html")
 
 @app.route("/profile")
 @login_required

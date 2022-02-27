@@ -36,11 +36,19 @@
                     <option value="Part-time">Part-time</option>
                     <option value="Ad-hoc">Ad-hoc</option>
                 </select>
-                <label for="job_sector">and job sector: </label>
+                <label for="job_sector">and job Sector: </label>
                 <select id="job_sector">
-                    <option value="healthcare">Healthcare</option>
-                    <option value="fnb">Food and beverages</option>
-                    <option value="tech">Technology</option>
+                    <option value="Account/Finance">Account/Finance</option>
+                    <option value="Admin/Human resources">Admin/Human resources</option>
+                    <option value="Sales/Marketing">Sales/Marketing</option>
+                    <option value="Services">Services</option>
+                    <option value="Art/Media/Communications">Art/Media/Communications</option>
+                    <option value="Education/Training">Education/Training</option>
+                    <option value="Hotel/Restuarant">Hotel/Restuarant</option>
+                    <option value="Computer/IT">Computer/IT</option>
+                    <option value="Engineer">Engineer</option>
+                    <option value="Sciences">Sciences</option>
+                    <option value="Manufacturing">Manufacturing</option>
                 </select>
                 <button type="button" class="btn btn-primary" value="Filter" id="filter">Filter</button>
            </div>
@@ -51,11 +59,17 @@
             <div class="col-md-3">
                 <div class="left-col">
                     <div class="border border-primary-0 rounded side-content">
-                        <h4>
+                        <h4 class="mb-3">
                             <span>Refine your search</span>
                         </h4>
-                        <div>
-                        </div>
+                        <form action="/upload" method="post">
+                            <div class="mb-3 pad">
+                                <input class="form-control mx-auto w-auto" id="search" name="search" placeholder="Search" type="search">
+                            </div>
+                            <div class="mb-3">
+                                <button class="btn btn-primary" type="submit">Upload</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -81,4 +95,3 @@
     </div>
 
 {% endblock %}
-

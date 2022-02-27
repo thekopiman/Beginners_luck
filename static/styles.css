@@ -164,3 +164,16 @@ button:hover {
     color: red;
     font-size: x-small;
 }
+
+.items{
+    margin-top: 50px;
+}
+
+
+.bottom-margin{
+    margin-bottom: 80px;
+}
+
+.desc-input{
+    height: 150px;
+}

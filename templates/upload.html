@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+ 
+{% block title %}
+    Upload A Job
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-md navbar-light border-bottom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><span class="blue">Inteetsgintern</span></a>
+        <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+                <!-- insert a navbar for logging in and registering-->
+                <ul class="navbar-nav me-auto mt-2">
+                </ul>
+                <ul class="navbar-nav ms-auto mt-2">
+                    <li class="nav-item"><a class="nav-link" href="/upload">Make A Post</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+                </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+ 
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+                <div class="middle-col">
+                    <div class="border border-primary-0 rounded login">
+                        <form action="/upload" method="post">
+                            <div class="sign-in-label">
+                                <h4>Upload A New Job</h4>
+                            </div>
+                            <div class="bottom-margin">
+                                <div class="items">
+                                    <div class="mb-3">
+                                        <label for="job_type">Job Type</label>
+                                            <select id="job_type">
+                                                <option value="Internship">Internship</option>
+                                                <option value="Part-Time">Part-Time</option>
+                                                <option value="Ad-Hoc">Ad-Hoc</option>
+                                            </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="requirement">Highest qualifications: </label>
+                                            <select id="requirement">
+                                                <option value="Degree">Degree</option>
+                                                <option value="Diploma">Diploma</option>
+                                                <option value="A-levels">A-Levels</option>
+                                                <option value="O-levels">O-Levels</option>
+                                                <option value="N-levels">N-Levels</option>
+                                            </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="job_sector">Type of jobs you are looking for: </label>
+                                            <select id="job_sector">
+                                                <option value="Account/Finance">Account/Finance</option>
+                                                <option value="Admin/Human resources">Admin/Human resources</option>
+                                                <option value="Sales/Marketing">Sales/Marketing</option>
+                                                <option value="Services">Services</option>
+                                                <option value="Art/Media/Communications">Art/Media/Communications</option>
+                                                <option value=Education/Training">Education/Training</option>
+                                                <option value="Hotel/Restuarant">Hotel/Restuarant</option>
+                                                <option value="Computer/IT">Computer/IT</option>
+                                                <option value="Engineer">Engineer</option>
+                                                <option value="Sciences">Sciences</option>
+                                                <option value="Manufacturing">Manufacturing</option>
+                                            </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Pay">Pay: </label>
+                                        <input autocomplete="off" class="form-control mx-auto w-auto" id="pay" name="pay" placeholder="Pay" type="text">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="description">Description: </label>
+                                        <textarea class="form-control mx-auto w-auto desc-input" id="desc" name="desc" placeholder="Job Description (Max 300 words)" required></textarea>
+                                    </div>
+                                    <button class="btn btn-primary" type="submit">Upload</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

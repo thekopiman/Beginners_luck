@@ -1,7 +1,6 @@
 from flask import Flask, redirect, render_template, request, session
 from flask_session import Session
 import random
-import csv
 
 from helper import login_required
 
@@ -32,6 +31,18 @@ def index():
        companies.append("Google")
 
    return render_template("index.html", data=data, companies=companies, welcome=welcome)
+
+@app.route("/upload")
+@login_required
+def upload():
+   
+   return render_template("upload.html")
+
+@app.route("/profile")
+@login_required
+def profile():
+   
+   return render_template("profile.html")
 
 
 @app.route("/home")

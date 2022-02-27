@@ -68,7 +68,7 @@ class WebFireBaseDB():
     def register_job(self, company, description, jobSector, jobType, pay, qualification):
         new_id = str(uuid4())
 
-        users_ref = self.ref.child('users')
+        users_ref = self.ref.child('jobs')
 
         users_ref.child(new_id).set({
             'company': str(company),

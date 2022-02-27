@@ -32,7 +32,7 @@ def index():
 
    return render_template("index.html", data=data, companies=companies, welcome=welcome)
 
-@app.route("/upload")
+@app.route("/upload", methods=["GET", "POST"])
 @login_required
 def upload():
 
@@ -47,11 +47,16 @@ def upload():
     else:
         return render_template("upload.html")
 
-@app.route("/profile")
+@app.route("/profile", methods=["GET", "POST"])
 @login_required
 def profile():
-   
-   return render_template("profile.html")
+
+    if request.method == "POST":
+
+        return redirect("/")
+
+    else:
+        return render_template("profile.html")
 
 
 @app.route("/home")

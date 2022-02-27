@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
  
 {% block title %}
-    Update Profile
+    Accounts for employees
 {% endblock %}
 
 {% block navbar %}
@@ -16,6 +16,7 @@
                 <ul class="navbar-nav me-auto mt-2">
                 </ul>
                 <ul class="navbar-nav ms-auto mt-2">
+                    <li class="nav-item"><a class="nav-link" href="/upload">Make A Post</a></li>
                     <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
                     <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
                 </ul>
@@ -25,47 +26,51 @@
 {% endblock %}
  
 {% block main %}
-    <div class="container top">
+    <div class="container">
         <div class="row">
             <div class="col-md-2">
             </div>
             <div class="col-md-8">
                 <div class="middle-col">
-                    <div class="border border-primary-0 rounded content">
-                        <div>
-                            <h4>Update profile</h4>
-                        </div>
-                        <hr>
-                        <div>
-                            <label for="requirement">Highest qualifications: </label>
-                                <select id="requirement">
-                                    <option value="degree">Degree</option>
-                                    <option value="diploma">Diploma</option>
-                                    <option value="A-levels">A-Levels</option>
-                                    <option value="O-levels">O-Levels</option>
-                                    <option value="N-levels">N-Levels</option>
-                                </select>
-                        </div>
-                        <div>
-                            <label for="job_type">Type of jobs you are looking for: </label>
-                                <select id="job_type">
-                                    <option value="finance">Account/Finance</option>
-                                    <option value="admin">Admin/Human resources</option>
-                                    <option value="sales">Sales/Marketing</option>
-                                    <option value="services">Services</option>
-                                    <option value="art">Art/Media/Communications</option>
-                                    <option value="education">Education/Training</option>
-                                    <option value="hotel">Hotel/Restuarant</option>
-                                    <option value="computer">Computer/IT</option>
-                                    <option value="engineer">Engineer</option>
-                                    <option value="sciences">Sciences</option>
-                                    <option value="manufacturing">Manufacturing</option>
-                                </select>
-                        </div>
-                        <div>
-                            <label for="pay">Desired pay: </label>
-                            <input autocomplete="off" class="form-control mx-auto w-auto" id="pay" name="pay" placeholder="Desired pay" type="text">
-                        </div>
+                    <div class="border border-primary-0 rounded login">
+                        <form action="/upload" method="post">
+                            <div class="sign-in-label">
+                                <h4>Update profile</h4>
+                            </div>
+                            <div class="items">
+                                <div class="mb-3">
+                                    <label for="requirement">Highest qualifications: </label>
+                                        <select id="requirement">
+                                            <option value="degree">Degree</option>
+                                            <option value="diploma">Diploma</option>
+                                            <option value="A-levels">A-Levels</option>
+                                            <option value="O-levels">O-Levels</option>
+                                            <option value="N-levels">N-Levels</option>
+                                        </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="job_type">Type of jobs you are looking for: </label>
+                                        <select id="job_type">
+                                            <option value="finance">Account/Finance</option>
+                                            <option value="admin">Admin/Human resources</option>
+                                            <option value="sales">Sales/Marketing</option>
+                                            <option value="services">Services</option>
+                                            <option value="art">Art/Media/Communications</option>
+                                            <option value="education">Education/Training</option>
+                                            <option value="hotel">Hotel/Restuarant</option>
+                                            <option value="computer">Computer/IT</option>
+                                            <option value="engineer">Engineer</option>
+                                            <option value="sciences">Sciences</option>
+                                            <option value="manufacturing">Manufacturing</option>
+                                        </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="pay">Desired pay: </label>
+                                    <input autocomplete="off" class="form-control mx-auto w-auto" id="pay" name="pay" placeholder="Desired pay" type="text">
+                                </div>
+                                <button class="btn btn-primary" type="submit">Update</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -74,5 +79,4 @@
         </div>
     </div>
 
-{% endblock %}
 {% endblock %}
